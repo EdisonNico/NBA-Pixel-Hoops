@@ -4,7 +4,7 @@ Videojuego de básquetbol 2D 5 vs 5 inspirado en la NBA, con cámara top-down y 
 Todos los sprites, la cancha y los sonidos se generan por código, así que no hay imágenes ni audios
 externos que puedan faltar.
 
-### 🔗 Jugar online: **[https://nba-pixel-hoops.onrender.com](https://nba-pixel-hoops.onrender.com)**
+### Jugar online: **[https://nba-pixel-hoops.onrender.com](https://nba-pixel-hoops.onrender.com)**
 
 ---
 
@@ -21,7 +21,7 @@ externos que puedan faltar.
 
 ---
 
-## 🎮 De qué trata el juego
+## De qué trata el juego
 
 Eliges tu equipo NBA y un rival, y juegas un partido completo de 4 cuartos contra la CPU. Controlas a un
 jugador a la vez (puedes cambiar entre los cinco), y la IA maneja a tus compañeros y a los rivales.
@@ -36,7 +36,7 @@ Giannis Antetokounmpo, Jalen Brunson y más). Cada jugador tiene dorsal, peinado
 
 ---
 
-## 🕹️ Controles
+## Controles
 
 | Tecla | Acción |
 |---|---|
@@ -52,7 +52,7 @@ Giannis Antetokounmpo, Jalen Brunson y más). Cada jugador tiene dorsal, peinado
 
 ---
 
-## 📋 Reglas implementadas
+## Reglas implementadas
 
 - 4 cuartos con cronómetro y reloj de 24 segundos.
 - Tiros de 2 y 3 puntos, bandejas y tiros libres.
@@ -64,7 +64,7 @@ Giannis Antetokounmpo, Jalen Brunson y más). Cada jugador tiene dorsal, peinado
 
 ---
 
-## 🧭 Menú principal
+## Menú principal
 
 - **Jugar partido**
 - **Seleccionar equipo**
@@ -76,7 +76,7 @@ Giannis Antetokounmpo, Jalen Brunson y más). Cada jugador tiene dorsal, peinado
 
 ---
 
-## ▶️ Cómo ejecutarlo en Visual Studio Code (Live Server)
+## Cómo ejecutarlo en Visual Studio Code (Live Server)
 
 1. Instala **Visual Studio Code** y la extensión **Live Server**.
 3. Clic derecho sobre `index.html` > **Open with Live Server** (o el botón **Go Live** abajo a la derecha).
@@ -86,14 +86,14 @@ Giannis Antetokounmpo, Jalen Brunson y más). Cada jugador tiene dorsal, peinado
 
 ---
 
-## 🌐 Despliegue
+## Despliegue
 
 El juego está publicado en **Render** como *Static Site*: https://nba-pixel-hoops.onrender.com
 - Cada `git push` a `main` vuelve a publicarlo automáticamente.
 
 ---
 
-## 🗂️ Estructura del proyecto
+## Estructura del proyecto
 
 ```
 nba-pixel-game/
