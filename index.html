@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NBA Pixel Hoops</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container"></div>
+
+  <!-- Phaser 3: CDN principal, CDN de respaldo y copia local opcional (vendor/phaser.min.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+  <script>
+    if (!window.Phaser) document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"><\/script>');
+  </script>
+  <script>
+    if (!window.Phaser) document.write('<script src="vendor/phaser.min.js"><\/script>');
+  </script>
+  <script>
+    if (!window.Phaser) {
+      document.getElementById('game-container').innerHTML =
+        '<p class="error">No se pudo cargar Phaser 3.<br>Revisa tu conexion a internet o copia phaser.min.js dentro de la carpeta <b>vendor/</b>.</p>';
+    }
+  </script>
+
+  <!-- Código del juego (módulos ES) -->
+  <script type="module" src="game.js"></script>
+</body>
+</html>

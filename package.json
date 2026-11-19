@@ -1,0 +1,11 @@
+{
+  "name": "nba-pixel-hoops",
+  "version": "1.0.0",
+  "description": "Videojuego de basquetbol 2D estilo NBA en pixel art (Phaser 3)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx --yes live-server --port=5500 ."
+  },
+  "license": "UNLICENSED"
+}
