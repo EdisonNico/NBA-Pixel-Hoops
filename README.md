@@ -1,10 +1,23 @@
 # 🏀 NBA Pixel Hoops
 
 Videojuego de básquetbol 2D 5 vs 5 inspirado en la NBA, con cámara top-down y estética pixel art retro.
-Hecho con **HTML5 + CSS3 + JavaScript (módulos ES) + Phaser 3**.
-
 Todos los sprites, la cancha y los sonidos se generan por código, así que no hay imágenes ni audios
 externos que puedan faltar.
+
+### 🔗 Jugar online: **[https://nba-pixel-hoops.onrender.com](https://nba-pixel-hoops.onrender.com)**
+
+---
+
+## 🧰 Tecnologías utilizadas
+
+**Interfaz y juego**  
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) ![Phaser](https://img.shields.io/badge/Phaser_3-8B5CF6?style=flat&logo=phaser&logoColor=white)
+
+**Arquitectura y APIs del navegador**  
+![ES Modules](https://img.shields.io/badge/ES_Modules-F7DF1E?style=flat&logo=javascript&logoColor=black) ![Canvas API](https://img.shields.io/badge/Canvas_API-E34F26?style=flat&logo=html5&logoColor=white) ![Web Audio API](https://img.shields.io/badge/Web_Audio_API-FF6F00?style=flat) ![localStorage](https://img.shields.io/badge/localStorage-4B5563?style=flat)
+
+**Despliegue y control de versiones**  
+![Render](https://img.shields.io/badge/Render-46E3B7?style=flat&logo=render&logoColor=black) ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white) ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=flat&logo=visualstudiocode&logoColor=white) ![Live Server](https://img.shields.io/badge/Live_Server-41B883?style=flat&logo=visualstudiocode&logoColor=white)
 
 ---
 
@@ -65,24 +78,19 @@ Giannis Antetokounmpo, Jalen Brunson y más). Cada jugador tiene dorsal, peinado
 
 ## ▶️ Cómo ejecutarlo en Visual Studio Code (Live Server)
 
-1. Instala **Visual Studio Code** y la extensión **Live Server** (autor: Ritwick Dey).
+1. Instala **Visual Studio Code** y la extensión **Live Server**.
 2. `Archivo > Abrir carpeta…` y elige la carpeta `nba-pixel-game` (la que contiene `index.html`).
 3. Clic derecho sobre `index.html` > **Open with Live Server** (o el botón **Go Live** abajo a la derecha).
-4. Se abre `http://127.0.0.1:5500` y el juego arranca en el menú principal.
 
 > Hay que abrirlo con Live Server: los módulos ES no funcionan con doble clic sobre `index.html`.
 > Phaser se carga desde un CDN. Sin internet, guarda `phaser.min.js` en `vendor/` (ver `vendor/README.md`).
 
 ---
 
-## 🌐 Cómo publicarlo
+## 🌐 Despliegue
 
-Es un sitio estático, así que se puede subir gratis:
-
-- **Render:** New → Static Site → conecta el repositorio de GitHub. Build Command vacío y Publish Directory `.`
-- **Netlify Drop:** arrastra la carpeta en app.netlify.com/drop.
-- **GitHub Pages:** Settings → Pages → Deploy from branch (main).
-- **itch.io:** sube un `.zip` con `index.html` en la raíz (proyecto tipo HTML).
+El juego está publicado en **Render** como *Static Site*: https://nba-pixel-hoops.onrender.com
+- Cada `git push` a `main` vuelve a publicarlo automáticamente.
 
 ---
 
@@ -114,7 +122,7 @@ nba-pixel-game/
     │   ├── Player.js
     │   └── PlayerSprites.js
     ├── teams/
-    │   └── teamsData.js    # 8 equipos NBA, colores y quintetos con ratings
+    │   └── teamsData.js    # Equipos NBA, colores y quintetos con ratings
     ├── systems/            # Lógica reutilizable
     │   ├── Ball.js             # física y estados del balón
     │   ├── AIController.js     # IA de compañeros y rivales
@@ -143,27 +151,4 @@ nba-pixel-game/
 - Cancha pixel art con gradas y público, marcador digital y avisos en pantalla.
 - Reorganización del código de variables globales a **módulos ES** (`import` / `export`) con carpetas por responsabilidad.
 - Ajuste de la IA: menos robos y bloqueos, más ritmo y más puntos por partido.
-- Pruebas por simulación: partidos completos CPU vs CPU, tiempo extra, controles aleatorios y todos los menús, sin errores.
-
----
-
-## ✏️ Personalizar
-
-- **Equipos y jugadores:** `src/teams/teamsData.js` (nombre, dorsal, piel, peinado y ratings).
-- **Duración y ritmo:** `MODES` en `src/config/constants.js`.
-- **Sprites propios:** reemplaza las funciones de `PlayerSprites.js` por `this.load.image(...)` con archivos en `assets/`.
-
----
-
-```
-┌──────────────────────────────────────┐
-│        _.---._                       │
-│      .'  ___  '.                     │
-│     /   (o_o)   \     > Edison D.    │
-│    |   /|___|\   |                   │
-│    |  /_|_|_|_\  |     root@EdisonD  │
-│     \    '-'    /                    │
-│      '._  _  _.'                     │
-│        |_||_||_|                     │
-└──────────────────────────────────────┘
-```
+- Pruebas por
