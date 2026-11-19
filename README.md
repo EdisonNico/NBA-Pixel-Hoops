@@ -79,7 +79,6 @@ Giannis Antetokounmpo, Jalen Brunson y más). Cada jugador tiene dorsal, peinado
 ## ▶️ Cómo ejecutarlo en Visual Studio Code (Live Server)
 
 1. Instala **Visual Studio Code** y la extensión **Live Server**.
-2. `Archivo > Abrir carpeta…` y elige la carpeta `nba-pixel-game` (la que contiene `index.html`).
 3. Clic derecho sobre `index.html` > **Open with Live Server** (o el botón **Go Live** abajo a la derecha).
 
 > Hay que abrirlo con Live Server: los módulos ES no funcionan con doble clic sobre `index.html`.
@@ -144,11 +143,3 @@ nba-pixel-game/
 
 ---
 
-## 🛠️ Qué se hizo
-
-- Juego completo con menú, selección de equipo y rival, configuración e instrucciones.
-- Partidos 5 vs 5 con IA para compañeros y rivales, con tres niveles de dificultad.
-- Cancha pixel art con gradas y público, marcador digital y avisos en pantalla.
-- Reorganización del código de variables globales a **módulos ES** (`import` / `export`) con carpetas por responsabilidad.
-- Ajuste de la IA: menos robos y bloqueos, más ritmo y más puntos por partido.
-- Pruebas por
