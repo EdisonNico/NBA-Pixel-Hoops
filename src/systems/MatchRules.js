@@ -64,7 +64,7 @@ export class MatchRules {
       if (s > bs) { bs = s; best = p; }
     });
     this.phase = 'live';
-    sc.ball.startPass(ib, best, 220);
+    if (best) sc.ball.startPass(ib, best, 220); // en 1 vs 1 no hay compañero: el jugador sigue con el balón
   }
   update(dt) {
     const sc = this.scene;
@@ -187,7 +187,7 @@ export class MatchRules {
     const dd = Math.min(...opp.map(o => Math.hypot(o.x - p.x, o.y - p.y)));
     if (dd < 14) c -= 0.2; else if (dd < 26) c -= 0.1; else if (dd < 40) c -= 0.04;
     if (opp.some(o => o.blockTimer > 0 && Math.hypot(o.x - p.x, o.y - p.y) < 30)) c -= 0.12;
-    if (p.side === 1) c += [-0.06, 0, 0.05][Settings.get('diff')];
+    if (p.side === 1 && !sc.versus) c += [-0.06, 0, 0.05][Settings.get('diff')];
     return clamp(c, 0.05, 0.92);
   }
   releaseShot(p) {
@@ -245,7 +245,7 @@ export class MatchRules {
       p.facing = Math.atan2(hoop.y - p.y, hoop.x - p.x);
     });
     sc.ball.setHolder(shooter);
-    sc.setControlled(shooter.side === 0 ? shooter : sc.controlled);
+    if (shooter.side === 0) sc.setControlled(shooter);
     sc.hud.banner('TIROS LIBRES x' + n, COLORS.gold, 1200);
   }
   updateFT(dt) {
@@ -270,13 +270,13 @@ export class MatchRules {
       if (f.t <= 0) { f.state = 'aim'; f.cur = 0; f.dir = 1; f.aimT = 0; }
     } else if (f.state === 'aim') {
       f.aimT += dt;
-      const human = sh.side === 0 && !sc.spectator;
+      const human = sc.isHuman(sh);
       const w = 0.07 + sh.data.sho / 1200;
       if (human) {
         f.cur += f.dir * dt * 1.6;
         if (f.cur >= 1) { f.cur = 1; f.dir = -1; } else if (f.cur <= 0) { f.cur = 0; f.dir = 1; }
-        sc.hud.ftMeter(f.cur, w, 'ESPACIO PARA TIRAR');
-        if (sc.ctrl.pressed('shoot')) this.shootFT(Math.abs(f.cur - 0.5) < w ? 1 : 0.12);
+        sc.hud.ftMeter(f.cur, w, sc.versus && sh.side === 1 ? 'ENTER PARA TIRAR' : 'ESPACIO PARA TIRAR');
+        if (sc.ctrl.pressedFor(sh.side, 'shoot')) this.shootFT(Math.abs(f.cur - 0.5) < w ? 1 : 0.12);
       } else if (f.aimT > 0.9) this.shootFT(0.5 + sh.data.sho / 250 > Math.random() ? 1 : 0);
     }
   }

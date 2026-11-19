@@ -38,7 +38,9 @@ export const MODES = [
   { id: 'exhibicion', name: 'EXHIBICION', quarter: 120, speed: 1.0 },
   { id: 'arcade', name: 'ARCADE', quarter: 60, speed: 1.15 },
   { id: 'pro', name: 'PRO (3 MIN)', quarter: 180, speed: 1.0 },
-  { id: 'cpu', name: 'ESPECTADOR CPU', quarter: 60, speed: 1.0, spectator: true }
+  { id: 'cpu', name: 'ESPECTADOR CPU', quarter: 60, speed: 1.0, spectator: true },
+  { id: '1v1', name: '1 VS 1 AMIGO', quarter: 90, speed: 1.0, perTeam: 1, versus: true },
+  { id: '1v1cpu', name: '1 VS 1 CPU', quarter: 90, speed: 1.0, perTeam: 1 }
 ];
 
 export const DIFFS = ['FACIL', 'NORMAL', 'DIFICIL'];

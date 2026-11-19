@@ -11,7 +11,7 @@ export class AIController {
   reactToShot(shooter) {
     const sc = this.scene;
     sc.players.forEach(p => {
-      if (p.side === shooter.side || p === sc.controlled || p.freeze) return;
+      if (p.side === shooter.side || sc.isHuman(p) || p.freeze) return;
       if (Math.hypot(p.x - shooter.x, p.y - shooter.y) < 28 && Math.random() < (0.08 + p.data.def / 600) * sc.aiDefMul(p)) p.startBlock();
     });
   }
@@ -43,7 +43,7 @@ export class AIController {
       });
     }
     sc.players.forEach((p, i) => {
-      if (p === sc.controlled && m.phase !== 'ft') return;
+      if (sc.isHuman(p) && m.phase !== 'ft') return;
       if (p.freeze || !live) { p.setMove(0, 0, false); return; }
       const ai = p.ai || (p.ai = { think: rand(0, 0.3), offT: 0, off: { x: 0, y: 0 }, stealT: 0 });
       ai.think -= dt; ai.offT -= dt; ai.stealT -= dt;
@@ -61,7 +61,7 @@ export class AIController {
     });
   }
   spot(p, ai) {
-    const h = this.scene.match.hoopFor(p.side), inw = -h.dir, s = SPOTS[p.idx % 5];
+    const h = this.scene.match.hoopFor(p.side), inw = -h.dir, s = SPOTS[p.slot % 5];
     return { x: clamp(h.x + inw * s[0] + ai.off.x, C.x + 8, C.x + C.w - 8), y: clamp(C.cy + s[1] + ai.off.y, C.y + 10, C.y + C.h - 6) };
   }
   offBall(p, ai) {
@@ -83,8 +83,8 @@ export class AIController {
   }
   defendMark(p, ai, handler) {
     const sc = this.scene, opps = sc.players.filter(o => o.side !== p.side);
-    let mark = opps[p.idx];
-    if (handler && mark === handler) mark = opps[(p.idx + 1) % 5];
+    let mark = opps[p.slot % opps.length];
+    if (handler && mark === handler) mark = opps[(p.slot + 1) % opps.length];
     const h = sc.match.hoopFor(1 - p.side);
     const dx = h.x - mark.x, dy = h.y - mark.y, d = Math.hypot(dx, dy) || 1;
     let tx = mark.x + dx / d * 16, ty = mark.y + dy / d * 16;

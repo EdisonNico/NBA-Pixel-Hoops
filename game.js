@@ -28,3 +28,15 @@ const config = {
 window.addEventListener('load', () => {
   window.nbaGame = new Phaser.Game(config);
 });
+
+/*
+┌──────────────────────────────────────┐
+│        _.---._                       │
+│      .'  ___  '.                     │
+│     /   (o_o)   \     > Edison D.    │
+│    |   /|___|\   |                   │
+│    |  /_|_|_|_\  |     root@EdisonD  │
+│     \    '-'    /                    │
+│      '._  _  _.'                     │                     
+└──────────────────────────────────────┘
+*/
