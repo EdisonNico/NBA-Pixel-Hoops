@@ -10,8 +10,8 @@ export class ResultScene extends Phaser.Scene {
     const d = this.d, win = d.score[0] > d.score[1];
     drawBackdrop(this, d.teams[0].id, 0.78);
     Sfx[win ? 'win' : 'lose']();
-    const t = drawTitle(this, win ? 'VICTORIA!' : 'DERROTA', 40, 34);
-    t.setColor(win ? '#ffd23f' : '#ff5a5a');
+    const t = drawTitle(this, d.versus ? (win ? 'GANA JUGADOR 1' : 'GANA JUGADOR 2') : (win ? 'VICTORIA!' : 'DERROTA'), 40, d.versus ? 26 : 34);
+    t.setColor(win || d.versus ? '#ffd23f' : '#ff5a5a');
     this.tweens.add({ targets: t, scale: 1.1, duration: 500, yoyo: true, repeat: -1 });
     const st = (s, c) => ({ fontFamily: FONT, fontSize: s + 'px', fontStyle: 'bold', color: c || '#ffffff' });
     this.add.text(GAME_W / 2 - 110, 90, d.teams[0].name.toUpperCase(), st(12, d.teams[0].trim)).setOrigin(0.5).setDepth(11);
