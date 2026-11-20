@@ -8,10 +8,8 @@ se generan por código: no hay imágenes ni audios externos que puedan faltar.
 
 ## Cómo ejecutarlo en Visual Studio Code (Live Server)
 
-1. Instala **Visual Studio Code** y la extensión **Live Server** (autor: Ritwick Dey).
-2. `Archivo > Abrir carpeta…` y elige la carpeta `nba-pixel-game` (la que contiene `index.html`).
-3. Clic derecho sobre `index.html` > **Open with Live Server** (o botón *Go Live* abajo a la derecha).
-4. Se abre `http://127.0.0.1:5500` y el juego arranca en el menú principal.
+1. Instala **Visual Studio Code** y la extensión **Live Server**.
+2. Clic derecho sobre `index.html` > **Open with Live Server** (o botón *Go Live* abajo a la derecha).
 
 > Necesitas abrirlo con Live Server (servidor HTTP): los módulos ES no funcionan con doble clic en `index.html`.
 > Phaser se descarga de un CDN. Sin internet: guarda `phaser.min.js` en `vendor/` (ver `vendor/README.md`).
