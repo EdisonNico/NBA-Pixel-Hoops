@@ -23,8 +23,8 @@ export const CONTROLS_P1 = [
 /** Controles del jugador 2 en el modo 1 VS 1 (mismo teclado). El jugador 1 usa solo W A S D. */
 export const CONTROLS_P2 = [
   ['FLECHAS', 'Mover'],
-  [',', 'Correr'],
+  ['COMA ,', 'Correr'],
   ['ENTER', 'Lanzar / bandeja'],
-  ['.', 'Robar el balon'],
-  ['-', 'Bloquear']
+  ['PUNTO .', 'Robar el balon'],
+  ['GUION -', 'Bloquear']
 ];

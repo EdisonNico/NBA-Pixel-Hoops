@@ -3,6 +3,7 @@
  * Phaser 3 se carga como script global desde index.html (CDN con respaldo local en /vendor).
  */
 import { GAME_W, GAME_H, COLORS } from './src/config/constants.js';
+import { installPixelText } from './src/ui/PixelText.js';
 import { BootScene } from './src/scenes/BootScene.js';
 import { MenuScene } from './src/scenes/MenuScene.js';
 import { TeamSelectScene } from './src/scenes/TeamSelectScene.js';
@@ -25,9 +26,16 @@ const config = {
   scene: [BootScene, MenuScene, TeamSelectScene, SettingsScene, InstructionsScene, GameScene, ResultScene]
 };
 
-window.addEventListener('load', () => {
+/** Espera (máx. 1.5 s) a que cargue la fuente pixel y arranca el juego. */
+async function boot() {
+  try {
+    await Promise.race([document.fonts.load('8px PixelNBA'), new Promise((r) => setTimeout(r, 1500))]);
+  } catch (e) { /* si falla, se usa la fuente de respaldo */ }
+  installPixelText();
   window.nbaGame = new Phaser.Game(config);
-});
+}
+
+window.addEventListener('load', boot);
 
 /*
 ┌──────────────────────────────────────┐
@@ -37,6 +45,6 @@ window.addEventListener('load', () => {
 │    |   /|___|\   |                   │
 │    |  /_|_|_|_\  |     root@EdisonD  │
 │     \    '-'    /                    │
-│      '._  _  _.'                     │                     
+│      '._  _  _.'                     │
 └──────────────────────────────────────┘
 */

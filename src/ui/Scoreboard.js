@@ -1,6 +1,7 @@
 // Marcador digital superior, avisos centrales y medidor de tiros libres.
 
 import { FONT, GAME_W } from '../config/constants.js';
+import { readableOn } from '../utils/color.js';
 
 const css = (n) => '#' + n.toString(16).padStart(6, '0');
 export class Scoreboard {
@@ -16,7 +17,7 @@ export class Scoreboard {
     this.g.fillStyle(0x151a33, 1).fillRect(x0 + 271, y0 + 3, 90, h - 6);
     this.g.fillStyle(0x300a0a, 1).fillRect(x0 + 365, y0 + 3, 32, h - 6);
     const T = (x, y, t, s, c, o) => scene.add.text(x, y, t, st(s, c)).setOrigin(o === undefined ? 0.5 : o, 0.5).setDepth(D + 1);
-    T(x0 + 10, 14, teams[0].abbr, 12, teams[0].trim, 0);
+    T(x0 + 10, 14, teams[0].abbr, 12, readableOn(teams[0].main, teams[0].trim), 0);
     this.s0 = T(x0 + 126, 14, '0', 13, '#fff', 1);
     T(x0 + 144, 14, teams[1].abbr, 12, teams[1].altTrim === teams[1].main ? '#fff' : '#fff', 0);
     this.s1 = T(x0 + 260, 14, '0', 13, '#fff', 1);
@@ -26,7 +27,7 @@ export class Scoreboard {
     // aviso central
     this.ban = scene.add.text(GAME_W / 2, 48, '', Object.assign(st(16, '#ffd23f'), { stroke: '#000', strokeThickness: 4 })).setOrigin(0.5).setDepth(D + 2).setAlpha(0);
     // jugador controlado
-    this.who = scene.add.text(8, 346, '', Object.assign(st(9, '#ffd23f'), { stroke: '#000', strokeThickness: 3 })).setDepth(D + 2);
+    this.who = scene.add.text(8, 334, '', Object.assign(st(9, '#ffd23f'), { stroke: '#000', strokeThickness: 3 })).setDepth(D + 2);
     // medidor de tiros libres
     this.mg = scene.add.graphics().setDepth(D + 3);
     this.mt = scene.add.text(GAME_W / 2, 292, '', Object.assign(st(9, '#fff'), { stroke: '#000', strokeThickness: 3 })).setOrigin(0.5).setDepth(D + 3);
