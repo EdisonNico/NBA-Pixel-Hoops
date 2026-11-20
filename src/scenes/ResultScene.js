@@ -2,6 +2,7 @@ import { FONT, GAME_W } from '../config/constants.js';
 import { Sfx } from '../systems/AudioSystem.js';
 import { drawBackdrop, drawTitle } from '../ui/Backdrop.js';
 import { Button, MenuList } from '../ui/Button.js';
+import { readableOn } from '../utils/color.js';
 
 export class ResultScene extends Phaser.Scene {
   constructor() { super('Result'); }
@@ -14,11 +15,11 @@ export class ResultScene extends Phaser.Scene {
     t.setColor(win || d.versus ? '#ffd23f' : '#ff5a5a');
     this.tweens.add({ targets: t, scale: 1.1, duration: 500, yoyo: true, repeat: -1 });
     const st = (s, c) => ({ fontFamily: FONT, fontSize: s + 'px', fontStyle: 'bold', color: c || '#ffffff' });
-    this.add.text(GAME_W / 2 - 110, 90, d.teams[0].name.toUpperCase(), st(12, d.teams[0].trim)).setOrigin(0.5).setDepth(11);
+    this.add.text(GAME_W / 2 - 110, 90, d.teams[0].name.toUpperCase(), st(12, readableOn('#0a0f1e', d.teams[0].trim))).setOrigin(0.5).setDepth(11);
     this.add.text(GAME_W / 2 + 110, 90, d.teams[1].name.toUpperCase(), st(12)).setOrigin(0.5).setDepth(11);
-    this.add.text(GAME_W / 2 - 110, 118, String(d.score[0]), st(30, '#ffd23f')).setOrigin(0.5).setDepth(11);
-    this.add.text(GAME_W / 2 + 110, 118, String(d.score[1]), st(30)).setOrigin(0.5).setDepth(11);
-    this.add.text(GAME_W / 2, 118, d.ot ? 'FINAL (OT)' : 'FINAL', st(10, '#bbbbbb')).setOrigin(0.5).setDepth(11);
+    this.add.text(GAME_W / 2 - 110, 124, String(d.score[0]), st(30, '#ffd23f')).setOrigin(0.5).setDepth(11);
+    this.add.text(GAME_W / 2 + 110, 124, String(d.score[1]), st(30)).setOrigin(0.5).setDepth(11);
+    this.add.text(GAME_W / 2, 124, d.ot ? 'FINAL (OT)' : 'FINAL', st(10, '#bbbbbb')).setOrigin(0.5).setDepth(11);
     const s = d.stats, pct = (a, b) => b ? Math.round(100 * a / b) + '%' : '0%';
     const rows = [
       ['TIROS DE CAMPO', s[0].fgm + '/' + s[0].fga + ' ' + pct(s[0].fgm, s[0].fga), s[1].fgm + '/' + s[1].fga + ' ' + pct(s[1].fgm, s[1].fga)],

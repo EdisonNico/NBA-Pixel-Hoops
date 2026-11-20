@@ -23,7 +23,8 @@ export const PAINT_HALF = 32;
 export const FT_OFF = 100; // línea de tiro libre desde la línea de fondo
 export const SHOT_CLOCK = 24;
 
-export const FONT = 'Courier New, monospace';
+/** Fuente pixel 5x7 (assets/fonts/pixel-nba.ttf). Nítida en tamaños múltiplos de 8 px. */
+export const FONT = 'PixelNBA, monospace';
 export const COLORS = {
   bg: '#07070d',
   gold: '#ffd23f',

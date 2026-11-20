@@ -5,6 +5,7 @@ import { Settings } from '../systems/SettingsStore.js';
 import { TEAMS } from '../teams/teamsData.js';
 import { drawBackdrop, drawTitle } from '../ui/Backdrop.js';
 import { Button } from '../ui/Button.js';
+import { readableOn } from '../utils/color.js';
 
 const COLS = 6, ROWS = Math.ceil(TEAMS.length / COLS);
 
@@ -24,7 +25,7 @@ export class TeamSelectScene extends Phaser.Scene {
       const x = x0 + (i % COLS) * (cw + gap), y = 52 + Math.floor(i / COLS) * (ch + gap);
       const col = parseInt(t.main.slice(1), 16);
       const rect = this.add.rectangle(x, y, cw, ch, col).setStrokeStyle(2, 0xffffff, 0.4).setDepth(10).setInteractive({ useHandCursor: true });
-      const ab = this.add.text(x, y - 6, t.abbr, { fontFamily: FONT, fontSize: '11px', fontStyle: 'bold', color: t.trim }).setOrigin(0.5).setDepth(11);
+      const ab = this.add.text(x, y - 6, t.abbr, { fontFamily: FONT, fontSize: '11px', fontStyle: 'bold', color: readableOn(t.main, t.trim) }).setOrigin(0.5).setDepth(11);
       const nm = this.add.text(x, y + 7, t.name.toUpperCase(), { fontFamily: FONT, fontSize: '7px', fontStyle: 'bold', color: '#ffffff' }).setOrigin(0.5).setDepth(11);
       const tag = this.add.text(x + cw / 2 - 2, y - ch / 2 + 1, t.id === this.otherId ? (other === 'rival' ? 'RIVAL' : 'TU EQ.') : '', { fontFamily: FONT, fontSize: '6px', color: '#ffd23f', backgroundColor: '#000' }).setOrigin(1, 0).setDepth(12);
       rect.on('pointerdown', () => { this.sel = i; Sfx.click(); this.refresh(); });

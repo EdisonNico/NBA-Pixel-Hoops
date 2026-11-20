@@ -17,7 +17,7 @@ se generan por código: no hay imágenes ni audios externos que puedan faltar.
 ## Controles
 
 | Tecla | Acción |
-|---|---|
+|---|---| 
 | W A S D | Mover |
 | Shift | Correr |
 | Espacio | Lanzar (bandeja si estás cerca del aro; tiro libre con barra de tiempo) |

@@ -60,9 +60,9 @@ export class GameScene extends Phaser.Scene {
     if (this.controlled) this.hud.setPlayer(this.controlled);
     // ayuda inferior
     const help = this.versus
-      ? 'J1: WASD mover, SHIFT correr, ESPACIO tirar, R robar, F bloquear | J2: FLECHAS, "," correr, ENTER tirar, "." robar, "-" bloquear'
-      : 'WASD mover | SHIFT correr | ESPACIO tirar | E pasar | Q cambiar | R robar | F bloquear | P pausa | H ayuda';
-    this.helpTxt = this.add.text(GAME_W / 2, 351, help,
+      ? 'J1: WASD MOVER, ESPACIO TIRAR, R ROBAR, F BLOQUEAR | J2: FLECHAS, ENTER TIRAR, . ROBAR, - BLOQUEAR'
+      : 'WASD MOVER  SHIFT CORRER  ESPACIO TIRAR  E PASAR  Q CAMBIAR  R ROBAR  F BLOQUEAR  P PAUSA  H AYUDA';
+    this.helpTxt = this.add.text(GAME_W / 2, 350, help,
       { fontFamily: FONT, fontSize: '8px', color: '#ffffff', backgroundColor: '#000000aa' }).setOrigin(0.5).setDepth(1000);
     this.helpTxt.setVisible(!!S.get('hints'));
     this.buildPauseUI();
@@ -136,6 +136,7 @@ export class GameScene extends Phaser.Scene {
   }
   setPaused(v) {
     this.paused = v;
+    if (v) this.hud.ban.setAlpha(0); // el aviso de la pantalla no debe tapar el texto de pausa
     this.pauseUI.forEach(o => o.setVisible(v));
     this.ctrlTexts.forEach(o => o.setVisible(v));
     if (v) Sfx.click();
