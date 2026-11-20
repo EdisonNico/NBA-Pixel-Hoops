@@ -4,7 +4,14 @@ Videojuego de básquetbol 2D 5 vs 5 inspirado en la NBA, con cámara top-down y 
 Hecho con **HTML5 + CSS3 + JavaScript (módulos ES) + Phaser 3**. Todos los sprites, la cancha y los sonidos
 se generan por código: no hay imágenes ni audios externos que puedan faltar.
 
-🔗 **Jugar online:** https://nba-pixel-hoops.onrender.com
+**Jugar online:** https://nba-pixel-hoops.onrender.com
+
+## Capturas
+<p align="center">
+  <img src="docs/inicio.png" width="32%">
+  <img src="docs/equipos.png" width="32%">
+  <img src="docs/juego.png" width="32%">
+</p>
 
 ## Cómo ejecutarlo en Visual Studio Code (Live Server)
 
